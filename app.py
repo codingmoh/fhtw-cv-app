@@ -40,9 +40,6 @@ def prediction(model: Model, file: UploadFile = File(...)):
     # Read image as a stream of bytes
     image_stream = io.BytesIO(file.file.read())
     
-    # Start the stream from the beginning (position zero)
-    image_stream.seek(0)
-    
     # Write the stream of bytes into a numpy array
     file_bytes = np.asarray(bytearray(image_stream.read()), dtype=np.uint8)
     
